@@ -1,0 +1,45 @@
+BMW I-BUS INJECTOR PROJECT README
+
+NOTICE: All information provided in this project zip file is supplied without warranty or support of any sort. You agree to use it at your own risk. I am publishing the details of this project as a record of what worked for me, not what anyone else should attempt.
+
+This i-bus injector project reads 4 * 12 volt I/O lines and injects their status onto the car i-bus.
+
+The PIC code checks that the bus is quiet and then writes a custom message onto the bus when any of the I/O lines change status. If there is bus contention while the message is written, it will write it out again unit it has been sent without errors.
+
+It can easily be adapted to read something like a retro fitted i-drive controller to control A/V and navigation functions. Other uses are also possible by modifing the code and electronics.The code can also be made to look for certain i-bus messages and react to them, making some sort of custom function module.
+
+I have included a circuit diagram that includes a very basic but functional i-bus interface connected directly to the PIC processor.
+
+The crystal oscillator is optional, I recommend using the internal oscillator to save cost and complexity.The extra I/O lines might also come in handy.
+
+The picture shows the inside of my unit which was based on the PCB of a previous PIC based project I created. It's just for reference.
+
+The i-bus messages it creates look something like:
+
+
+
+"F2 04 F3 00 08 0D"
+
+F2 - source module address (F2 is my data injector module address)
+04 - length in bytes of the rest of the data packet
+F3 - destination module address (F3 is a dummy address)
+00 - command type, set to zero as default
+08 - data for the command - this contains a bit field of the status of the various I/O lines 
+0D - XOR checksum
+
+Currently any i-bus packets with "F2" at the beginning are from the i-bus injector.
+
+To use this project to contol other functions of the car simply replace the custom messages with the messages you require.
+
+To do any sort of work on the BMW i-bus, I recommend the NavCoder i-bus software and the Resler i-bus interface (serial and USB).
+
+I fitted 5 pin DIN sockets to my car in the boot and centre console that exposed the battery +, ignition +, GND and i-bus. It made experimentation much easier.
+
+Good luck
+
+
+
+Richard Jelbert
+richard@jelbert.com
+www.richardjelbert.info
+ 
