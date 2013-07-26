@@ -29,7 +29,7 @@ Currently any i-bus packets with "F2" at the beginning are from the i-bus inject
 
 To use this project to contol other functions of the car simply replace the custom messages with the messages you require.
 
-To do any sort of work on the BMW i-bus, I recommend the NavCoder i-bus software ( www.siegenthaler.co.nz/navcoder/ )and the Resler i-bus interface ( www.reslers.de/IBUS/ ).
+To do any sort of work on the BMW i-bus, I recommend the NavCoder i-bus software ( www.navcoder.com )and the Resler i-bus interface ( www.reslers.de/IBUS/ ).
 
 Good luck
 
